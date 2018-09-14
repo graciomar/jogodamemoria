@@ -135,15 +135,11 @@ def log_tentativa():
 	text_log = ""
 	log = open("game-log.txt", "rt")
 	meta_data = []
-	list_user = []
-
-	if contador > 1:
-		meta_data.append( (contador/2) )
-		list_user[0] = usuario_atual
+	#list_user = []
 
 	for line in log:
 		line_data = line.split(' -*- ')
-		list_user[0] =  line_data[0]
+		#list_user[0] =  line_data[0]
 		if (contador/2) != int(line_data[1]):
 			meta_data.append( int(line_data[1]) )
 		
@@ -151,7 +147,7 @@ def log_tentativa():
 	text_label = ""
 	for indice, line in enumerate(meta_data):
 		if indice < 3:
-			text_log += list_user[0] + " -*- " + str(line)+"\n"
+			text_log += line_data[0] + " -*- " + str(line)+"\n"
 	log.close()
 
 	if len(text_log):
